@@ -11,6 +11,33 @@ exports.index = async (req, res) => {
   }
 };
 
+exports.active = async (req, res) => {
+  let games = await Game.find({ active: true });
+  try {
+    res.json(games);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+exports.featured = async (req, res) => {
+  let games = await Game.find({ featured: true, active: true });
+  try {
+    res.json(games);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+exports.specialoffers = async (req, res) => {
+  let games = await Game.find({ discount: { $gt: 0 }, active: true });
+  try {
+    res.json(games);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 exports.createGame = async (req,res) =>{
     const errors = validationResult(req);
     if(!errors.isEmpty()){

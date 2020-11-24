@@ -6,6 +6,9 @@ const userController = require("./controllers/userController");
 
 //Games routes
 router.get("/games/", [], gameController.index);
+router.get("/games/active", [], gameController.active);
+router.get("/games/featured", [], gameController.featured);
+router.get("/games/specialoffers", [], gameController.specialoffers);
 router.post(
   "/games/new/",
   [
