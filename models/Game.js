@@ -28,6 +28,10 @@ const GameSchema = mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  featured: {
+    type: Boolean,
+    default: false
+  },
   images: {
     poster_image_url: {
       type: String,
