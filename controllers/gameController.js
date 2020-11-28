@@ -3,7 +3,7 @@ const {validationResult} = require('express-validator');
 
 
 exports.index = async (req, res) => {
-  let games = await Game.find({});
+  let games = await Game.find({}).sort({ created_at: -1});
   try {
     res.json(games);
   } catch (error) {
@@ -12,7 +12,7 @@ exports.index = async (req, res) => {
 };
 
 exports.active = async (req, res) => {
-  let games = await Game.find({ active: true });
+  let games = await Game.find({ active: true }).sort({ created_at: -1 });
   try {
     res.json(games);
   } catch (error) {
@@ -21,7 +21,9 @@ exports.active = async (req, res) => {
 };
 
 exports.featured = async (req, res) => {
-  let games = await Game.find({ featured: true, active: true });
+  let games = await Game.find({ featured: true, active: true }).sort({
+    created_at: -1,
+  });
   try {
     res.json(games);
   } catch (error) {
@@ -30,7 +32,9 @@ exports.featured = async (req, res) => {
 };
 
 exports.specialoffers = async (req, res) => {
-  let games = await Game.find({ discount: { $gt: 0 }, active: true });
+  let games = await Game.find({ discount: { $gt: 0 }, active: true }).sort({
+    created_at: -1,
+  });
   try {
     res.json(games);
   } catch (error) {
