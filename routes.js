@@ -3,6 +3,7 @@ const router = express.Router();
 const { check } = require("express-validator");
 const gameController = require("./controllers/gameController");
 const userController = require("./controllers/userController");
+const contactController = require("./controllers/contactController");
 
 //Games routes
 router.get("/games/", [], gameController.index);
@@ -36,5 +37,7 @@ router.post(
   ],
   userController.createUser
 );
+//contact
+router.post("/contact/",contactController.sendMail)
 
 module.exports = router;
