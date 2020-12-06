@@ -5,7 +5,7 @@ var cors = require('cors');
 const nodemailer = require("nodemailer");
 //Linkeamos el .env
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 const dotenv = require('dotenv');
@@ -19,13 +19,16 @@ const PORT = process.env.PORT || 4000;
 //middleware morgan
 app.use(morgan('dev'));
 
-app.use('/api',require('./routes'));
+app.use('/api', require('./routes'));
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS,
   },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 transporter.verify(function (error, success) {
   if (error) {
@@ -35,6 +38,6 @@ transporter.verify(function (error, success) {
   }
 });
 
-app.listen(PORT,()=>{
-    console.log("Anda el sv!!");
+app.listen(PORT, () => {
+  console.log("Anda el sv!!");
 });
