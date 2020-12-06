@@ -10,7 +10,7 @@ exports.sendMail = async (req, res) => {
   });
 
   const { email, phone, comment, whatsapp } = req.body;
-  const name = req.body.name || "Usuario"
+  const name = req.body.name || "Usuario";
 
   const mailOptions = {
     from: email,
@@ -36,13 +36,22 @@ ${comment}
   <p><strong>Comentario</strong>: ${comment}</p>`;
   }
 
+  //si el mail es test@error.com, fuerzo un error a fines de testeo
+  if (mailOptions.from === "test@error.com") {
+    res.status(500).json({ msg: "Oops! Hubo un error, intenta de nuevo" });
+    return;
+  }
+
+  //sino mando el mail (pudiendo rescatar un error real)
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
-      res.sendStatus(500);
+      res.status(500).json({ msg: "Oops! Hubo un error, intenta de nuevo" });
     } else {
       console.log("Email sent: " + info.response);
-      res.sendStatus(200);
+      res
+        .status(200)
+        .json({ msg: "Perfecto! Nos estaremos comunicando a la brevedad!" });
     }
   });
 };
