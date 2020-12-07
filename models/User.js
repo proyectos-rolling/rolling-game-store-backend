@@ -8,18 +8,22 @@ const UserSchema = mongoose.Schema({
         required: true,
         trim: true
     },
-    email:{
+    email: {
         type: String,
         require: true,
         trim: true,
         unique: true
     },
-    password:{
+    password: {
         type: String,
         required: true,
         trim: true
     },
-    active:{
+    admin: {
+        type: String,
+        default: false
+    },
+    active: {
         type: Boolean,
         default: true
     },
