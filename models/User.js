@@ -20,7 +20,7 @@ const UserSchema = mongoose.Schema({
         trim: true
     },
     admin: {
-        type: String,
+        type: Boolean,
         default: false
     },
     active: {
