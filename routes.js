@@ -37,7 +37,9 @@ router.post(
   ],
   userController.createUser
 );
+
+router.post("/login/", userController.login)
 //contact
-router.post("/contact/",contactController.sendMail)
+router.post("/contact/", contactController.sendMail)
 
 module.exports = router;
