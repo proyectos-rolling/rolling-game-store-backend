@@ -25,7 +25,10 @@ exports.createUser = async (req, res) => {
       return res.status(400).json({ msg: 'El usuario ya existe!!' });
     }
     //creo
-    user = new User(req.body);
+    //
+    let userData = req.body;
+    delete userData.passwordConfirmation;
+    user = new User(userData);
     //Hacer el hash de la contraseña
     const salt = await bcryptjs.genSalt(10);
     user.password = await bcryptjs.hash(password, salt);
