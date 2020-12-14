@@ -58,7 +58,7 @@ exports.login = async (req, res) => {
     if (!isMatch)
       return res.status(401).json({ msg: "El password is incorrecto" });
     console.log(user)
-    res.json({ msg: "Logueado correctamente", email: user.email, admin: user.admin })
+    res.json({ msg: "Logueado correctamente", name: user.name, email: user.email, admin: user.admin })
   } catch (err) {
     return res.status(500).json({ msg: err.message })
   }
