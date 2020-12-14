@@ -53,10 +53,10 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user)
-      return res.status(400).json({ msg: "El mail no existe" });
+      return res.status(401).json({ msg: "El mail no existe" });
     const isMatch = await bcryptjs.compare(password, user.password)
     if (!isMatch)
-      return res.status(400).json({ msg: "El password is incorrecto" });
+      return res.status(401).json({ msg: "El password is incorrecto" });
     console.log(user)
     res.json({ msg: "Logueado correctamente", mail: user.email, admin: user.admin })
   } catch (err) {
