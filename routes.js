@@ -4,6 +4,7 @@ const { check } = require("express-validator");
 const gameController = require("./controllers/gameController");
 const userController = require("./controllers/userController");
 const contactController = require("./controllers/contactController");
+const MPController = require("./controllers/MPController");
 
 //Games routes
 router.get("/games/", [], gameController.index);
@@ -50,5 +51,8 @@ router.post(
 router.post("/login/", userController.login)
 //contact
 router.post("/contact/", contactController.sendMail)
+
+//checkout MercadoPago
+router.post("/checkout/mp/", MPController.checkout)
 
 module.exports = router;
