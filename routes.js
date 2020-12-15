@@ -19,6 +19,15 @@ router.post(
   ],
   gameController.createGame
 );
+router.put(
+  "/games/edit/",
+  [
+    check("name", "El nombre es obligatorio!").notEmpty(),
+    check("description", "La descripción es obligatoria!").notEmpty(),
+    check("price", "El precio es obligatorio!").notEmpty(),
+  ],
+  gameController.updateGame
+);
 router.delete("/games/:_id", [], gameController.destroy);
 
 //Users routes

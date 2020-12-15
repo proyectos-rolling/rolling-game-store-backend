@@ -63,6 +63,32 @@ exports.createGame = async (req,res) =>{
         res.status(400).json({msg:'hubo un error'})
     }
 }
+exports.updateGame = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  if (!req.body) {
+    return res
+      .status(400)
+      .send({ message: "Data to update can not be empty!" });
+  }
+  const { id } = req.body;
+  Game.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then((data) => {
+      console.log(data);
+      if (!data) {
+        res.status(404).send({
+          message: "Cannot update user with id:" + id + "maybe not found",
+        });
+      } else {
+        res.send({ msg: "Juego editado correctamente!!" });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ msg: "error" + err });
+    });
+};
 
 exports.destroy = async (req, res) => {
   const { _id } = req.params
