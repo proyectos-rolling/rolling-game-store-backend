@@ -6,7 +6,7 @@ Aplicación de venta de juegos digitales
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._ Este es el repositorio del backend. El frontend se encuentra en el siguiente repositorio: [rolling-game-store](https://github.com/proyectos-rolling/rolling-game-store)
 
-Mira [**Deployment BACK**](https://github.com/proyectos-rolling/rolling-game-store-backend#deploymet-back) para conocer como desplegar el proyecto de la parte del front.
+Mira [**Deployment BACK**](https://github.com/proyectos-rolling/rolling-game-store-backend#deploymet-back) para conocer como desplegar el proyecto de la parte del back.
 
 ### Pre-requisitos
 
