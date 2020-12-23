@@ -81,8 +81,7 @@ _Back_
 
 * [NodeJs](https://nodejs.org/es/)
 * [ExpressJS](https://expressjs.com/es/)
-
-- [ExpressValidator](https://express-validator.com/)
-- [mercadopago](https://www.mercadopago.com.ar/developers/es/guides/online-payments/checkout-pro/integration)
-- [mongoose](https://mongoosejs.com/)
-- [nodemailer](https://nodemailer.com/about/)
+* [ExpressValidator](https://express-validator.com/)
+* [mercadopago](https://www.mercadopago.com.ar/developers/es/guides/online-payments/checkout-pro/integration)
+* [mongoose](https://mongoosejs.com/)
+* [nodemailer](https://nodemailer.com/about/)
