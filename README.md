@@ -85,4 +85,4 @@ _Back_
 - [ExpressValidator](https://express-validator.com/)
 - [mercadopago](https://www.mercadopago.com.ar/developers/es/guides/online-payments/checkout-pro/integration)
 - [mongoose](https://mongoosejs.com/)
-- [nodemailer](
+- [nodemailer](https://nodemailer.com/about/)
